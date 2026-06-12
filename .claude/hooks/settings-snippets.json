@@ -1,0 +1,46 @@
+{
+  "_comment": "Hook snippets for .claude/settings.json. Copy the 'hooks' object in, or merge individual entries if you already have hooks. See README.md in this folder.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | { read f; case \"$f\" in *.js|*.jsx|*.ts|*.tsx|*.css|*.json|*.md) npx prettier --write \"$f\" >/dev/null 2>&1 || true ;; esac; }"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.command // empty' | grep -qE 'rm -rf (/|~|\\$HOME)([^a-zA-Z0-9_-]|$)|git push.*--force.*(main|master)|git reset --hard|chmod -R 777|> ?/dev/sd|dd if=|mkfs' && { echo 'Blocked: dangerous bash pattern' >&2; exit 2; } || exit 0"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | grep -qE '(^|/)(migrations|supabase/migrations)/' && { echo 'Blocked: applied migrations are immutable. Create a new migration file instead, or ask the human.' >&2; exit 2; } || exit 0"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff 2>/dev/null || printf '\\a'"
+          }
+        ]
+      }
+    ]
+  }
+}

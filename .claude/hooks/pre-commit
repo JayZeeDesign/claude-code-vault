@@ -1,0 +1,61 @@
+#!/bin/sh
+# Pre-commit gate: typecheck + tests before any commit lands.
+# From the Claude Code Template Vault (Claude Code 101, lesson 3.5).
+#
+# Install:  cp .claude/hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+#
+# This friction is FREE for agents: Claude reads the failure and fixes it
+# unprompted. Every commit becomes a verified checkpoint.
+
+set -e
+
+# --- Configure your commands -------------------------------------------------
+# TODO: set these to your project's real commands, or rely on auto-detection
+# below for common setups.
+TYPECHECK_CMD=""   # e.g. "pnpm typecheck"  |  "npx tsc --noEmit"  |  "mypy ."
+TEST_CMD=""        # e.g. "pnpm test"       |  "pytest -q"         |  "go test ./..."
+
+# --- Auto-detection (used only when the variables above are empty) -----------
+detect() {
+  if [ -f pnpm-lock.yaml ]; then PM="pnpm"
+  elif [ -f yarn.lock ]; then PM="yarn"
+  elif [ -f package-lock.json ]; then PM="npm run"
+  else PM=""
+  fi
+
+  if [ -z "$TYPECHECK_CMD" ] && [ -n "$PM" ] && [ -f package.json ]; then
+    if grep -q '"typecheck"' package.json; then TYPECHECK_CMD="$PM typecheck"
+    elif [ -f tsconfig.json ]; then TYPECHECK_CMD="npx tsc --noEmit"
+    fi
+  fi
+
+  if [ -z "$TEST_CMD" ]; then
+    if [ -n "$PM" ] && [ -f package.json ] && grep -q '"test"' package.json; then
+      TEST_CMD="$PM test"
+    elif [ -f pyproject.toml ] || [ -f pytest.ini ]; then
+      TEST_CMD="pytest -q"
+    elif [ -f go.mod ]; then
+      TEST_CMD="go test ./..."
+    fi
+  fi
+}
+detect
+
+if [ -z "$TYPECHECK_CMD" ] && [ -z "$TEST_CMD" ]; then
+  echo "pre-commit: no typecheck or test command configured or detected." >&2
+  echo "pre-commit: edit .git/hooks/pre-commit and set TYPECHECK_CMD / TEST_CMD." >&2
+  exit 1
+fi
+
+# --- Run the gate -------------------------------------------------------------
+if [ -n "$TYPECHECK_CMD" ]; then
+  echo "pre-commit: $TYPECHECK_CMD"
+  $TYPECHECK_CMD || { echo "pre-commit: typecheck failed; commit blocked." >&2; exit 1; }
+fi
+
+if [ -n "$TEST_CMD" ]; then
+  echo "pre-commit: $TEST_CMD"
+  $TEST_CMD || { echo "pre-commit: tests failed; commit blocked." >&2; exit 1; }
+fi
+
+echo "pre-commit: clean. Committing."
