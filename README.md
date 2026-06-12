@@ -105,3 +105,21 @@ MIT. Use it, fork it, ship with it.
 ## Attribution
 
 Pattern origins and credits are documented in [SOURCES.md](SOURCES.md).
+
+## Community skills worth studying
+
+Curated from GitHub, June 2026. Different authors, all active, licenses checked. Audit any third-party skill before installing - read the SKILL.md and every bundled script, because skills execute code. Borrow patterns, keep your set small.
+
+| Repo | Author | What it is | License |
+| --- | --- | --- | --- |
+| [anthropics/skills](https://github.com/anthropics/skills) | Anthropic | Official pack: frontend-design, mcp-builder, webapp-testing, skill-creator, plus document skills (xlsx, docx, pdf, pptx) | per-skill |
+| [obra/superpowers](https://github.com/obra/superpowers) | Jesse Vincent | The biggest community framework: brainstorm -> plan -> subagent execution -> TDD -> review. Study the structure even if you adopt none of it | MIT |
+| [trailofbits/skills](https://github.com/trailofbits/skills) | Trail of Bits | Security research and vulnerability-audit skills from a real security firm. Pairs with our security-audit skill | CC-BY-SA-4.0 |
+| [garrytan/gstack](https://github.com/garrytan/gstack) | Garry Tan (YC) | A full agentic coding stack (AGENTS.md, architecture, browser, design docs) - a reference setup, not a skill pack | MIT |
+| [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | thedotmack | Persistent cross-session memory via hooks - captures what your agent does and restores context | Apache-2.0 |
+| [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Julius Brussee | Token-diet skill claiming ~65% cuts - pairs with lesson 1.4's token economics | MIT |
+| [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | Othman Adi | Crash-proof markdown planning for long agentic tasks - complements the PRD/plan chain | MIT |
+| [blader/humanizer](https://github.com/blader/humanizer) | blader | Strips AI tells from generated writing - useful for content workflows | MIT |
+| [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | Jim Liu (Baoyu) | Content-creation skill pack from one of the most-followed CN AI authors | check repo |
+| [nowork-studio/NotFair](https://github.com/nowork-studio/NotFair) | nowork.studio | SEO, GEO, Google Ads, and Meta Ads skills - marketing automation for builders | MIT |
+| [lackeyjb/playwright-skill](https://github.com/lackeyjb/playwright-skill) | lackeyjb | Model-invoked Playwright browser automation - tier 2 of the automation ladder | MIT |
