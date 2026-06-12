@@ -6,7 +6,7 @@ You are one iteration of an autonomous loop. Previous iterations left their work
 
 3. **Announce your pick** in one line (which task, why it's next), then execute it with the /ship skill: understand, implement test-first for backend logic, run typecheck and tests until clean.
 
-4. **Commit and close the trail.** Commit with a message that names the issue (e.g. "Fix webhook retry backoff (#14)"). Close the issue or tick the plan checkbox. If you discovered follow-up work, file it as a new issue instead of doing it.
+4. **Commit and close the trail.** Commits are the only memory the next iteration gets, so write the body for it. Subject names the issue (e.g. "Fix webhook retry backoff (#14)"); body lists: key decisions made and why, files touched, anything that blocked you, and one note the next iteration should read first. Close the issue or tick the plan checkbox. If you discovered follow-up work, file it as a new issue instead of doing it.
 
 5. **Exit.** One task per iteration, even if you have appetite for more.
 
