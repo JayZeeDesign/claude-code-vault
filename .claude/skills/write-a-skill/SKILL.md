@@ -2,6 +2,8 @@
 name: write-a-skill
 description: Use when creating or revising any Claude Code skill, or when the user says "write me a skill for X". Encodes the house conventions: frontmatter style, body structure, when to bundle scripts, and project vs user scope.
 ---
+<!-- Community meta-skill pattern. Prompt text original. See SOURCES.md -->
+
 
 # Write a Skill
 

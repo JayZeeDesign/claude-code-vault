@@ -2,6 +2,8 @@
 name: ship
 description: Use when implementing any task that should end in a commit. Encodes the definition of done: understand, implement with red-green-refactor for backend logic, run typecheck and tests until clean, then commit. Also the unit of work for autonomous loops.
 ---
+<!-- Workflow pattern popularized by Matt Pocock (AI Hero); red-green-refactor is Kent Beck's. Prompt text original. See SOURCES.md -->
+
 
 # Ship
 

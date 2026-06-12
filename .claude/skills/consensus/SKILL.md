@@ -2,6 +2,8 @@
 name: consensus
 description: Use when a question has a factual or best-practice answer but a single response might hallucinate, or when the user asks to "get consensus" or "sanity check this with multiple agents". Spawns N subagents on the same question with varied personas and tallies answer frequency.
 ---
+<!-- Multi-agent consensus pattern as taught by Nick Saraev. Prompt text original. See SOURCES.md -->
+
 
 # Stochastic Consensus
 

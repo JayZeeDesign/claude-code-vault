@@ -2,6 +2,8 @@
 name: mcp-to-skill
 description: Use when a workflow built on an MCP server has stabilized and should become a production skill, or when the user says "convert this MCP workflow to a skill". Produces a skill with a bundled script that calls the underlying API directly, eliminating the per-session MCP token overhead.
 ---
+<!-- MCP-to-skill conversion workflow as taught by Nick Saraev. Prompt text original. See SOURCES.md -->
+
 
 # MCP to Skill
 

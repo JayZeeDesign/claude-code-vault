@@ -2,6 +2,8 @@
 name: prd-to-backlog
 description: Use when a PRD or spec exists and needs to become an executable backlog. Breaks the document into GitHub issues structured as vertical-slice tracer bullets, marks each as HITL or AFK, and files a final QA issue. Requires the gh CLI.
 ---
+<!-- Pattern popularized by Matt Pocock (AI Hero); tracer bullets from The Pragmatic Programmer. Prompt text original. See SOURCES.md -->
+
 
 # PRD to Backlog
 

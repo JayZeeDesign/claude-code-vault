@@ -2,6 +2,8 @@
 name: debate
 description: Use when a question has real trade-offs and no single right answer: architecture choices, library selection, design direction. Runs a multi-round debate where agents see each other's positions across rounds, converge, and a synthesis is produced. For factual questions, use consensus instead.
 ---
+<!-- Multi-agent debate pattern as taught by Nick Saraev. Prompt text original. See SOURCES.md -->
+
 
 # Debate
 

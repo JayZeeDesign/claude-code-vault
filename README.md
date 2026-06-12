@@ -101,3 +101,7 @@ v1.0, June 2026. Verified against Claude Code docs as of this date: Opus 4.8 and
 ## License
 
 MIT. Use it, fork it, ship with it.
+
+## Attribution
+
+Pattern origins and credits are documented in [SOURCES.md](SOURCES.md).

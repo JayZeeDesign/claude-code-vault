@@ -2,6 +2,8 @@
 name: email-labeler
 description: Use when triaging an inbox: fetching unprocessed emails, classifying each into a label taxonomy, and applying labels via the provider's API. Provider-agnostic skeleton; scripts/label.py must be wired to your email provider before first use.
 ---
+<!-- Pattern as taught by Nick Saraev. Prompt text original. See SOURCES.md -->
+
 
 # Email Labeler
 
